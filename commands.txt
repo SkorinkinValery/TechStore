@@ -1,0 +1,3 @@
+ipython - python manage.py shell
+django-extensions - python manage.py shell_plus --print-sql
+Выход - exit
