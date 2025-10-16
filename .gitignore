@@ -26,3 +26,6 @@ local_settings.py
 # OS
 .DS_Store
 Thumbs.db
+
+# Other
+commands.txt
