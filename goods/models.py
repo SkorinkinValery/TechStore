@@ -24,10 +24,18 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=0, verbose_name='Количество')
     category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Категория')
 
-    def __str__(self):
-        return f'{self.name} - {self.quantity} шт.'
-
     class Meta:
         db_table = 'goods_product'
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
+
+    def __str__(self):
+        return f'{self.name} - {self.quantity} шт.'
+
+    def display_id(self):
+        return f'{str(self.id).zfill(5)}'
+
+    def sell_price(self):
+        if self.discount:
+            return round(self.price - self.price * self.discount / 100, 2)
+        return self.price

@@ -13,8 +13,11 @@ def catalog(request):
     return render(request, 'goods/catalog.html', context)
 
 
-def product(request):
+def product(request, slug):
+    product = Product.objects.get(slug=slug)
+
     context = {
-        'title': 'TechStore - Товар'
+        'title': 'TechStore - Товар',
+        'product': product
     }
     return render(request, 'goods/product.html', context)
