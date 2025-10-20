@@ -28,6 +28,7 @@ class Product(models.Model):
         db_table = 'goods_product'
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
+        ordering = ('id',)
 
     def __str__(self):
         return f'{self.name} - {self.quantity} шт.'
