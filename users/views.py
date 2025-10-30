@@ -66,3 +66,7 @@ def profile_view(request):
         'form': form
     }
     return render(request, 'users/profile.html', context)
+
+
+def user_cart(request):
+    return render(request, 'users/user-cart.html')
