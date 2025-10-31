@@ -10,8 +10,8 @@ class Category(models.Model):
 
     class Meta:
         db_table = 'goods_category'
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
+        verbose_name = "категорию"
+        verbose_name_plural = "Категория"
 
 
 class Product(models.Model):
@@ -26,8 +26,8 @@ class Product(models.Model):
 
     class Meta:
         db_table = 'goods_product'
-        verbose_name = "Продукт"
-        verbose_name_plural = "Продукты"
+        verbose_name = "товар"
+        verbose_name_plural = "Товар"
         ordering = ('id',)
 
     def __str__(self):
