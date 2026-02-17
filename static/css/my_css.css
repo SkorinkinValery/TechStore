@@ -7,6 +7,11 @@ body {
   height: 100%;
 }
 
+h1 {
+  color: white;
+  -webkit-text-stroke: 2px #1a1d20;
+}
+
 .dropdown-toggle::after {
   content: none;
 }

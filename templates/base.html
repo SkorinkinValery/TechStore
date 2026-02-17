@@ -13,14 +13,14 @@
     <!-- Стиль footer-a для главной страницы -->
     {% block css %}
     {% endblock %}
-    <!-- Favicons for different platforms -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'favicon/site.webmanifest ' %}">
-    {% block title %}
-    {% endblock %}
-</head>
+        <!-- Favicons for different platforms -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favicon/site.webmanifest ' %}">
+        {% block title %}
+        {% endblock %}
+    </head>
 
 <body>
 <header>
@@ -40,8 +40,8 @@
                             Информация
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item  text-white" href="#">Доставка и оплата</a></li>
-                            <li><a class="dropdown-item  text-white" href="#">Контактная информация</a></li>
+                            <li><a class="dropdown-item  text-white" href="{% url 'main:delivery_payments' %}">Доставка и оплата</a></li>
+                            <li><a class="dropdown-item  text-white" href="{% url 'main:contacts' %}">Контактная информация</a></li>
                             <li><a class="dropdown-item  text-white" href="{% url 'main:about' %}">Про нас</a></li>
                         </ul>
                     </li>
@@ -59,7 +59,6 @@
                                 Мой профиль
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="{% url 'users:user_cart' %}">Корзина</a></li>
                                 <li><a class="dropdown-item  text-white" href="{% url 'users:profile' %}">Личный кабинет</a>
                                 </li>
                                 {% if user.is_superuser %}
