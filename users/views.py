@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 
+from carts.models import Cart
 from users.forms import UserRegisterForm, ProfileForm
 
 
@@ -69,4 +70,9 @@ def profile_view(request):
 
 
 def user_cart(request):
-    return render(request, 'users/user-cart.html')
+    cart_items = Cart.objects.select_related('product').filter(user_id=request.user.id)
+    context = {
+        'cart_items': cart_items
+    }
+
+    return render(request, 'users/user-cart.html', context)
