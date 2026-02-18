@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from carts.models import Cart
-
+from goods.models import Product
 
 
 def cart_add(request, product_id, quantity=1):
@@ -18,11 +18,13 @@ def cart_add(request, product_id, quantity=1):
 def cart_update(request, product_id):
     cart_item = Cart.objects.get(user_id=request.user.id, product_id=product_id)
     action = request.POST.get('action')
-    print(action)
+    product = Product.objects.get(id=product_id)
     if action == 'increment':
-        cart_item.quantity += 1
+        if cart_item.quantity < product.quantity:
+            cart_item.quantity += 1
     else:
-        cart_item.quantity -= 1
+        if cart_item.quantity > 1:
+            cart_item.quantity -= 1
     cart_item.save()
     return redirect('users:user_cart')
 

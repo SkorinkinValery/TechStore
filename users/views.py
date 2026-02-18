@@ -71,8 +71,11 @@ def profile_view(request):
 
 def user_cart(request):
     cart_items = Cart.objects.select_related('product').filter(user_id=request.user.id)
+    count = Cart.objects.select_related('product').filter(user_id=request.user.id).count()
+
     context = {
-        'cart_items': cart_items
+        'cart_items': cart_items,
+        'count': count
     }
 
     return render(request, 'users/user-cart.html', context)

@@ -29,7 +29,7 @@
                         <p>x {{ item.product.price }} = </p>
                     </div>
                     <div class="col p-0">
-                        <strong>{{ item.product.price }} $</strong>
+                        <strong>{{ item.products_price }} $</strong>
                     </div>
                     <div class="col p-0">
                         <a href="{% url 'cart:cart_delete' item.product_id %}"
@@ -51,10 +51,10 @@
 <div class="card mb-3 shadow-lg">
     <div class="card-footer">
         <p class="float-left">
-            Итого <strong>1</strong> товар(а) на сумму
+            Итого <strong>{{ count }}</strong> товар(а) на сумму
         </p>
         <h4 class="float-left">
-            <strong>100.00 $</strong>
+            <strong>{{ cart_items.total_price }} $</strong>
         </h4>
     </div>
 </div>
