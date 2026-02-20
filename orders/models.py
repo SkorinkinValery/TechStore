@@ -14,6 +14,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     time_created = models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')
     status = models.CharField(choices=STATUS_CHOICES, default=STATUS_CHOICES['new'])
+    total_amount = models.DecimalField(default=0.00, max_digits=5, decimal_places=2, verbose_name='Итоговая стоимость')
 
 
 class OrderItem(models.Model):
