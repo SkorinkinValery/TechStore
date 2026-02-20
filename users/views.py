@@ -66,11 +66,16 @@ def profile_view(request):
     order_items = OrderItem.objects.select_related('product', 'order').filter(order__user_id=request.user.id)
     orders = Order.objects.filter(user_id=request.user.id)
 
+    total = 0
+    for order_item in order_items:
+        total += order_item.products_price()
+
     context = {
         'title': 'TechStore - Личный кабинет',
         'form': form,
         'order_items': order_items,
-        'orders': orders
+        'orders': orders,
+        'total': total
     }
     return render(request, 'users/profile.html', context)
 
@@ -81,7 +86,7 @@ def user_cart(request):
 
     context = {
         'cart_items': cart_items,
-        'count': count
+        'count': count,
     }
 
     return render(request, 'users/user-cart.html', context)

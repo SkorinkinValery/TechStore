@@ -17,6 +17,11 @@
                     <a class="btn btn-dark" href="{% url 'orders:add' %}">
                         Оформить заказ
                     </a>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <h4 style="color: red">{{ message }}</h4>
+                        {% endfor %}
+                    {% endif %}              
                 </div>
             </div>
         </div>
