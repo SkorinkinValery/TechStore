@@ -58,12 +58,16 @@
     <div class="row">
 
         {% if request.GET.q %}
-            <h2>Результаты по запросу {{ request.GET.q }}</h2>
+            <h2 style="color: white">Результаты по запросу {{ request.GET.q }}</h2>
             {% if not products %}
                 <h3>Ничего не найдено</h3>
             {% endif %}
         {% endif %}
-
+        
+        {% if not products %}
+            <h3>Ничего не найдено</h3>
+        {% endif %}
+    
         {% for product in products %}
             <div class="col-lg-4 col-md-6 p-4">
                 <div class="card border-primary rounded custom-shadow">
