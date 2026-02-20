@@ -7,6 +7,10 @@ from orders.models import Order, OrderItem
 
 
 def order_add(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'Для оформления заказа необходимо авторизоваться')
+        return redirect('users:user_cart')
+
     cart_items = Cart.objects.filter(user_id=request.user.id)
     if not cart_items.exists():
         messages.error(request, 'Корзина пуста')
