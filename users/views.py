@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 
 from carts.models import Cart
+from orders.models import Order, OrderItem
 from users.forms import UserRegisterForm, ProfileForm
 
 
@@ -62,9 +63,14 @@ def profile_view(request):
     else:
         form = ProfileForm(instance=request.user)
 
+    order_items = OrderItem.objects.select_related('product', 'order').filter(order__user_id=request.user.id)
+    orders = Order.objects.filter(user_id=request.user.id)
+
     context = {
         'title': 'TechStore - Личный кабинет',
-        'form': form
+        'form': form,
+        'order_items': order_items,
+        'orders': orders
     }
     return render(request, 'users/profile.html', context)
 
