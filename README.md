@@ -25,30 +25,6 @@
 
 - **Backend:** Python 3.8+, Django 4.x
 - **Frontend:** HTML, CSS (Bootstrap), JavaScript (AJAX / fetch)
-- **База данных:** SQLite (для разработки) → легко переключается на PostgreSQL
+- **База данных:** PostgreSQL
 - **Дополнительно:** Django sessions, caching framework, class-based views
 
-## Быстрый запуск
-
-```bash
-# 1. Клонируйте репозиторий
-git clone https://github.com/PythonHubStudio/Django-4-course-Home.git
-cd Django-4-course-Home
-
-# 2. Создайте виртуальное окружение и активируйте
-python -m venv venv
-source venv/bin/activate          # Linux / macOS
-# или
-venv\Scripts\activate             # Windows
-
-# 3. Установите зависимости
-pip install -r requirements.txt
-
-# 4. Выполните миграции
-python manage.py migrate
-
-# 5. (Опционально) Создайте суперпользователя
-python manage.py createsuperuser
-
-# 6. Запустите сервер
-python manage.py runserver
