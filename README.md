@@ -4,12 +4,7 @@
 [![Python](https://img.shields.io/badge/Python-3.8+-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Полноценный современный интернет-магазин, созданный в рамках курса «Django 4 с нуля» от Python Hub Studio.
-
 Проект включает всё необходимое для реального онлайн-магазина: каталог, категории, детальные страницы товаров, поиск, корзину с AJAX, оформление заказа, личный кабинет, кэширование и оптимизацию запросов.
-
-**Общая длительность курса ≈ 17 часов**  
-**Плейлист:** https://www.youtube.com/playlist?list=PLNi5HdK6QEmWNqncVoUZtj1QDC2VV0wI6
 
 ## Основные возможности
 
